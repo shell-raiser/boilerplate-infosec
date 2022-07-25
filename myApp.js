@@ -19,8 +19,9 @@ app.use(helmet.dnsPrefetchControl());
 // disable caching on client’s browser
 app.use(helmet.noCache());
 
-
-
+// setting and configuring a Content Security Policy
+directives = {defaultSrc: ["'self'"], scriptSrc: ["'self'", 'trusted-cdn.com']}
+app.use(helmet.contentSecurityPolicy({directives: directives}));
 
 
 
